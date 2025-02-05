@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: ms-ticket-manager
+  rabbitmq:
+    host: ${RABBIT_HOST}
+    port: 5672
+    username: ${RABBIT_USER}
+    password: ${RABBIT_PASS}
+    #host: localhost
+    #username: guest
+    #password: guest
+
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+mq:
+  queues:
+    ms-ticket: ms-ticket
+
+msevent:
+  events:
+    event: ${EVENT}
+
+server:
+  port: 8081
+

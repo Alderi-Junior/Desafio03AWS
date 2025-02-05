@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  ms-ticket-manager:
+    build: ./ms-ticket-manager
+    container_name: ms-ticket-manager
+    restart: always
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://admin:admin@10.0.23.255:27017/db_ticket?authSource=admin
+      - EVENT=http://10.0.17.54:8080
+      - RABBIT_HOST=10.0.23.255
+      - RABBIT_USER=guest
+      - RABBIT_PASS=guest
+    ports:
+      - "8081:8081"

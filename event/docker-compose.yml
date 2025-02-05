@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  ms-event-manager:
+    build: ./ms-event-manager
+    container_name: ms-event-manager
+    restart: always
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://admin:admin@10.0.23.255:27017/db_event?authSource=admin
+      - TICKET=http://10.0.16.163:8081
+    ports:
+      - "8080:8080"
